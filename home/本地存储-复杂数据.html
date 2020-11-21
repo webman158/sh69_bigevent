@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+
+    <script>
+        // 获取元素
+        let inp = document.querySelector("input");
+        let setBtn = document.querySelector(".set");
+        let getBtn = document.querySelector(".get");
+
+        // 存储复杂数据
+        let obj = [
+            {id: 1, name: "lw", age: 19},
+            {id: 2, name: "xm", age: 20},
+            {id: 3, name: "xhei", age: 18},
+        ];
+
+        // 存储数据
+        setBtn.onclick = function () {
+            // 错误演示
+            // localStorage.setItem("info", obj); // error
+            // 存储结果为： "[object Object],[object Object],[object Object]"
+
+            // 存储之前，先将js数组和对象处理成JSON字符串
+            let jsonStr = JSON.stringify(obj);
+            // console.log(jsonStr);
+            localStorage.setItem("info", jsonStr);
+        }
+
+        // 获取数据
+        getBtn.onclick = function () {
+            // 在获取到结果
+            let str = localStorage.getItem("info");
+            console.log(str);
+            // 需要将JSON字符串转JS对象才能操作
+            console.log(JSON.parse(str));
+        }
+    </script>
+</body>
+
+</html>
