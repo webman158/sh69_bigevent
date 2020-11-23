@@ -1,6 +1,25 @@
 $(function () {
   // 调用接口，获取用户头像昵称信息
   getUserInfo();
+
+  // 退出功能
+  $("#logout").on("click", function () {
+    // 处理事情：
+    // 1. 弹框询问
+    // 2. 确认之后，清除本地存储的token信息
+    // 3. 跳转页面到登录页面 login.html
+
+    // 1.
+    layer.confirm("确认退出?", { icon: 3, title: "提示" }, function (index) {
+      // 2.
+      localStorage.removeItem("token");
+
+      // 3.
+      location.href = "/home/login.html";
+
+      layer.close(index);
+    });
+  });
 });
 
 let layer = layui.layer;
