@@ -33,13 +33,13 @@ function getUserInfo() {
       Authorization: localStorage.getItem("token"),
     }, */
     success: function (res) {
-      console.log(res);
+      // console.log(res);
       if (res.status !== 0) {
         return layer.msg(res.message);
       }
 
       // 弹框提示
-      layer.msg(res.message);
+      // layer.msg(res.message);
 
       //   渲染展示头像和昵称
       renderUserInfo(res.data);
