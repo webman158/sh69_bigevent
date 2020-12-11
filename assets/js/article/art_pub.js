@@ -81,7 +81,7 @@ $(function () {
         data.append("cover_img", blob);
         data.append("state", state);
 
-        // data.forEach((item) => console.log(item));
+        data.forEach((item) => console.log(item));
 
         $.ajax({
           url: "/my/article/add",
